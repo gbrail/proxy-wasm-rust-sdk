@@ -141,7 +141,7 @@ pub fn set_buffer(
     buffer_type: BufferType,
     start: usize,
     size: usize,
-    value: &Bytes,
+    value: &[u8],
 ) -> Result<(), Status> {
     unsafe {
         match proxy_set_buffer_bytes(buffer_type, start, size, value.as_ptr(), value.len()) {
