@@ -184,7 +184,7 @@ pub trait HttpContext: Context {
         hostcalls::get_buffer(BufferType::HttpRequestBody, start, max_size).unwrap()
     }
 
-    fn set_http_request_body(&self, start: usize, size: usize, value: &Bytes) {
+    fn set_http_request_body(&self, start: usize, size: usize, value: &[u8]) {
         hostcalls::set_buffer(BufferType::HttpRequestBody, start, size, value).unwrap()
     }
 
@@ -248,7 +248,7 @@ pub trait HttpContext: Context {
         hostcalls::get_buffer(BufferType::HttpResponseBody, start, max_size).unwrap()
     }
 
-    fn set_http_response_body(&self, start: usize, size: usize, value: &Bytes) {
+    fn set_http_response_body(&self, start: usize, size: usize, value: &[u8]) {
         hostcalls::set_buffer(BufferType::HttpResponseBody, start, size, value).unwrap()
     }
 
