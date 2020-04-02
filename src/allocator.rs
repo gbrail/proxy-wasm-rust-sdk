@@ -12,9 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#[cfg(target_arch = "wasm32")]
 #[global_allocator]
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
+#[cfg(target_arch = "wasm32")]
 #[no_mangle]
 pub extern "C" fn malloc(size: usize) -> *mut u8 {
     let mut vec: Vec<u8> = Vec::with_capacity(size);
